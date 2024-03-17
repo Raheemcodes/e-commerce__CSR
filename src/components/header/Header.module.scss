@@ -1,0 +1,79 @@
+@import '../../shared/shared';
+
+.header {
+  @include between-centered();
+  position: relative;
+  gap: toRem(24);
+  padding: toRem(20) toRem(24) toRem(24);
+
+  @media screen and (min-width: $xl) {
+    padding: toRem(28) 0 toRem(34);
+  }
+}
+
+.left {
+  @include centered();
+  gap: toRem(16);
+  flex-shrink: 0;
+
+  @media screen and (min-width: $xl) {
+    gap: toRem(56);
+  }
+}
+
+.toggle-btn {
+  @include display-flex();
+  width: toRem(16);
+
+  @media screen and (min-width: $xl) {
+    display: none;
+  }
+}
+
+.logo {
+  @include display-flex();
+  width: toRem(138);
+}
+
+.right {
+  @include centered();
+  gap: toRem(24);
+
+  @media screen and (min-width: $xl) {
+    gap: toRem(46);
+  }
+}
+
+.cart-btn {
+  @include display-flex();
+  width: toRem(21.821);
+}
+
+.pfp {
+  @include display-flex();
+  width: toRem(24);
+
+  @media screen and (min-width: $xl) {
+    width: toRem(50);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.nav-item__border {
+  position: absolute;
+  width: toRem(50);
+  height: toRem(4);
+  background: #ff7e1b;
+  left: 300px;
+  bottom: 0;
+}
+
+.underline {
+  width: 100%;
+  height: toRem(1);
+  background: #e4e9f2;
+}

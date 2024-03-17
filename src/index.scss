@@ -1,0 +1,168 @@
+@import './shared/shared';
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-Thin.ttf')
+    format('truetype');
+  font-weight: 100;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-ExtraLight.ttf')
+    format('truetype');
+  font-weight: 200;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-Light.ttf')
+    format('truetype');
+  font-weight: 300;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-Medium.ttf')
+    format('truetype');
+  font-weight: 500;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-SemiBold.ttf')
+    format('truetype');
+  font-weight: 600;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-Bold.ttf')
+    format('truetype');
+  font-weight: 800;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/static/KumbhSans-Black.ttf')
+    format('truetype');
+  font-weight: 900;
+  font-display: block;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('./assets/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ\,wght.ttf')
+    format('truetype-variations');
+  font-weight: 100 900;
+  font-display: block;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html,
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-width: toRem(280);
+  color: #69707d;
+  background-color: #fff;
+  @include custom-scrollbar();
+  scroll-behavior: smooth;
+
+  @media screen and (min-width: $xl) {
+    padding: 0 toRem(165);
+  }
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #0000;
+  cursor: pointer;
+  border: none;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--gray-40);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  &.index {
+    &::after {
+      z-index: 2;
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--glow-up);
+  }
+  100% {
+    background-color: var(--glow-down);
+  }
+}

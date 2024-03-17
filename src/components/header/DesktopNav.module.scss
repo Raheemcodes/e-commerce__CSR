@@ -1,0 +1,20 @@
+@import '../../shared/shared';
+
+.nav-list {
+  list-style: none;
+  display: none;
+
+  @media screen and (min-width: $xl) {
+    @include display-flex();
+    gap: toRem(32);
+  }
+}
+
+.nav-item {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(15);
+  font-weight: 400;
+  line-height: toRem(26);
+  color: #69707d;
+  cursor: pointer;
+}
