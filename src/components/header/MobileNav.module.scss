@@ -1,0 +1,39 @@
+@import '../../shared/shared';
+
+.nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: toRem(-250);
+  width: toRem(250);
+  height: 100%;
+  background: #fff;
+  z-index: 3;
+  padding: toRem(24);
+  transition: left 0.3s ease-out;
+
+  &.opened {
+    left: 0;
+  }
+}
+
+.close-btn {
+  width: toRem(14);
+  height: toRem(14);
+  margin-bottom: toRem(54);
+}
+
+.nav-list {
+  list-style: none;
+  @include column-flex();
+  gap: toRem(20);
+}
+
+.nav-item {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(18);
+  font-weight: 700;
+  line-height: toRem(26);
+  color: #1d2026;
+  cursor: pointer;
+}

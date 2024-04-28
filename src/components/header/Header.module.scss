@@ -64,12 +64,17 @@
 }
 
 .nav-item__border {
+  display: none;
   position: absolute;
   width: toRem(50);
   height: toRem(4);
   background: #ff7e1b;
   left: 300px;
   bottom: 0;
+
+  @media screen and (min-width: $xl) {
+    display: block;
+  }
 }
 
 .underline {

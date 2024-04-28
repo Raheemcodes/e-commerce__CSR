@@ -4,13 +4,24 @@ import ToggleBtn from '../icons/ToggleBtn';
 import classes from './Header.module.scss';
 import Avatar from '../../assets/images/avatar/image-avatar.png';
 import DesktopNav from './DesktopNav';
+import MobileNav from './MobileNav';
+import { useState } from 'react';
 
 const Header = (): JSX.Element => {
+  const [navIsOpen, setNavIsOpen] = useState<boolean>(false);
+
+  const toggleHandler = (state: boolean) => {
+    setNavIsOpen(() => state);
+  };
+
   return (
     <>
       <header className={classes['header']}>
         <div className={classes['left']}>
-          <button className={classes['toggle-btn']}>
+          <button
+            className={classes['toggle-btn']}
+            onClick={() => toggleHandler(true)}
+          >
             <ToggleBtn />
           </button>
 
@@ -31,6 +42,8 @@ const Header = (): JSX.Element => {
           </div>
         </div>
         <div className={classes['nav-item__border']}></div>
+
+        <MobileNav isOpen={navIsOpen} onClose={() => toggleHandler(false)} />
       </header>
 
       <div className={classes['underline']}></div>
