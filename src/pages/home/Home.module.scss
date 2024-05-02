@@ -1,0 +1,126 @@
+@import '../../shared/shared';
+
+.content {
+  padding: toRem(24);
+}
+
+.title-orange {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(12);
+  font-weight: 700;
+  letter-spacing: toRem(1.846);
+  color: #ff7e1b;
+  text-transform: uppercase;
+  margin-bottom: toRem(19);
+}
+
+.title {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(28);
+  font-weight: 700;
+  color: #1d2026;
+  line-height: toRem(32);
+  margin-bottom: toRem(15);
+}
+
+.desc {
+  font-family: 'Kumbh Sans';
+  font-size: toRem(15);
+  font-weight: 400;
+  line-height: toRem(25);
+  color: #69707d;
+  margin-bottom: toRem(24);
+}
+
+.price-section {
+  @include between-centered();
+  margin-bottom: toRem(24);
+}
+
+.price-discount__container {
+  @include centered();
+}
+
+.price {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(28);
+  font-weight: 700;
+  color: #1d2026;
+  margin-right: toRem(16);
+}
+
+.discount {
+  color: #ff7e1b;
+  font-family: 'Kumbh Sans';
+  font-size: toRem(16);
+  font-weight: 700;
+  border-radius: toRem(6);
+  background: #ffeee2;
+  padding: toRem(4) toRem(8);
+}
+
+.undiscounted-price {
+  font-family: 'Kumbh Sans';
+  font-size: toRem(16);
+  font-weight: 700;
+  line-height: toRem(26);
+  color: #b6bcc8;
+  text-decoration: line-through;
+}
+
+.btn-actions {
+  width: 100%;
+}
+
+.quantity-container {
+  @include between-centered();
+  width: 100%;
+  border-radius: toRem(10);
+  background: #f6f8fd;
+  padding: toRem(16) toRem(32);
+  margin-bottom: toRem(16);
+}
+
+.quantity-control {
+  @include centered();
+  position: relative;
+  border-radius: toRem(10);
+
+  .horizontal,
+  .vertical {
+    position: absolute;
+    width: toRem(12);
+    height: toRem(3.5);
+    background: #ff7e1b;
+    box-shadow: toRem(0) toRem(20) toRem(50) -toRem(20) #ff7e1b;
+  }
+
+  .vertical {
+    transform: rotateZ(90deg);
+  }
+}
+
+.quantity {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(16);
+  font-weight: 700;
+  color: #1d2026;
+}
+
+.cart-icon__container {
+  width: toRem(18);
+}
+
+.add-to-cart {
+  @include centered();
+  width: 100%;
+  font-family: 'Kumbh Sans';
+  font-size: toRem(16);
+  font-weight: 700;
+  color: #fff;
+  border-radius: toRem(10);
+  background: #ff7e1b;
+  box-shadow: toRem(0) toRem(20) toRem(50) toRem(-20) #ff7e1b;
+  padding: toRem(18);
+  gap: toRem(16);
+}
