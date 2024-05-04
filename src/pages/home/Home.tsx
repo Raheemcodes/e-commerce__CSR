@@ -1,12 +1,21 @@
+import { useState } from 'react';
 import CartIcon from '../../components/icons/CartIcon';
 import Image from '../../components/image/Image';
 import { product } from '../../utilities/products.utility';
 import classes from './Home.module.scss';
 
 const Home = (): JSX.Element => {
+  const [isImageOpen, setIsImageOpen] = useState<boolean>(false);
+
   return (
     <>
-      <Image product={product} />
+      <Image
+        isOpen={isImageOpen}
+        onClose={() => setIsImageOpen(false)}
+        product={product}
+      />
+
+      <div className={classes['image-container']}></div>
 
       <div className={classes['content']}>
         <div className={classes['title-orange']}>Sneaker Company</div>

@@ -3,41 +3,52 @@
 .list {
   width: 100%;
   list-style: none;
-  @include centered();
+  display: none;
   gap: toRem(32);
+
+  @media screen and (min-width: $lg) {
+    @include centered();
+  }
 }
 
 .item {
+  position: relative;
   width: toRem(88);
   height: toRem(88);
   border-radius: toRem(10);
   cursor: pointer;
   overflow: hidden;
+  border: 2px solid #0000;
+  transition: border 0.3s ease-out;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.3s ease-out;
+  }
 
   @media (hover: hover) {
-    position: relative;
-    border: 2px solid #0000;
-    transition: border 0.3s ease-out;
-
-    &::after {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      content: '';
-      background: rgba(255, 255, 255, 0);
-      transition: background 0.3s ease-out;
-    }
-
     &:hover {
-      border: 2px solid #ff7e1b;
+      border: 2px solid #0000;
 
       &::after {
-        background: rgba(255, 255, 255, 0.75);
+        background: rgba(255, 255, 255, 0.5);
       }
+    }
+  }
+
+  &.active {
+    border: 2px solid #ff7e1b;
+
+    &::after {
+      background: rgba(255, 255, 255, 0.75);
     }
   }
 
