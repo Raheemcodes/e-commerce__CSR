@@ -1,0 +1,16 @@
+.svg {
+  width: 100%;
+  height: auto;
+
+  @media (hover: hover) {
+    path {
+      transition: all 0.2s ease-out;
+    }
+
+    &:hover {
+      path {
+        fill: #ff7e1b;
+      }
+    }
+  }
+}
