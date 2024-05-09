@@ -96,14 +96,13 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
   width: 100%;
   height: 100%;
+  @include custom-scrollbar();
 }
 
 body {
   min-width: toRem(280);
   color: #69707d;
   background-color: #fff;
-  @include custom-scrollbar();
-  scroll-behavior: smooth;
 
   @media screen and (min-width: $xl) {
     padding: 0 toRem(165);
@@ -121,6 +120,16 @@ body {
 
 main {
   width: 100%;
+  padding-bottom: toRem(88);
+
+  @media screen and (min-width: $xl) {
+    @include between-centered();
+    padding: toRem(90) 0 toRem(90);
+    gap: toRem(48);
+  }
+  @media screen and (min-width: $two-xl) {
+    padding: toRem(90) toRem(48) toRem(90);
+  }
 }
 
 a {

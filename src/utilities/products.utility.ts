@@ -8,7 +8,7 @@ import thumbnail_product_3 from '../assets/images/products/image-product-3-thumb
 import thumbnail_product_4 from '../assets/images/products/image-product-4-thumbnail.jpg';
 
 export interface Product {
-  images: string[];
+  images: { id: string; src: string }[];
   thumbnails: string[];
   title: string;
   desc: string;
@@ -17,7 +17,12 @@ export interface Product {
 }
 
 export const product: Product = {
-  images: [image_product_1, image_product_2, image_product_3, image_product_4],
+  images: [
+    { id: 's0', src: image_product_1 },
+    { id: 's1', src: image_product_2 },
+    { id: 's2', src: image_product_3 },
+    { id: 's3', src: image_product_4 },
+  ],
   thumbnails: [
     thumbnail_product_1,
     thumbnail_product_2,

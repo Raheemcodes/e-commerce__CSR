@@ -7,7 +7,13 @@ const routes = createBrowserRouter([
   {
     path: '',
     element: <RootLayout />,
-    children: [{ index: true, element: <Home /> }],
+    children: [
+      {
+        path: '',
+        element: <Home />,
+        children: [{ path: ':productId', element: null }],
+      },
+    ],
   },
 ]);
 

@@ -84,7 +84,6 @@
   @media (pointer: fine) and (hover: hover) {
     scrollbar-color: #b1afaf #0000;
     scrollbar-width: thin;
-    scrollbar-gutter: stable;
 
     &::-webkit-scrollbar {
       width: toRem(8); /* width of the entire scrollbar */

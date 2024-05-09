@@ -6,7 +6,7 @@
   display: none;
   gap: toRem(32);
 
-  @media screen and (min-width: $lg) {
+  @media screen and (min-width: $xl) {
     @include centered();
   }
 }

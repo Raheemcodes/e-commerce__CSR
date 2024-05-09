@@ -1,21 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import CartIcon from '../../components/icons/CartIcon';
 import Image from '../../components/image/Image';
+import QualityBtn from '../../components/quality-btn/QualityBtn';
+import Thumbnail from '../../components/thumbnail/Thumbnail';
 import { product } from '../../utilities/products.utility';
 import classes from './Home.module.scss';
 
 const Home = (): JSX.Element => {
   const [isImageOpen, setIsImageOpen] = useState<boolean>(false);
+  const { productId } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setIsImageOpen(!!productId);
+  }, [productId]);
 
   return (
     <>
       <Image
         isOpen={isImageOpen}
-        onClose={() => setIsImageOpen(false)}
+        onClose={() => navigate('/')}
         product={product}
       />
 
-      <div className={classes['image-container']}></div>
+      <div className={classes['image-thumbnail__container']}>
+        <div className={classes['image-container']}>
+          <img
+            width={1000}
+            height={1000}
+            src={product.images[0].src}
+            alt={product.title}
+            loading='lazy'
+          />
+        </div>
+
+        <div className={classes['thumbnail-container']}>
+          <Thumbnail product={product} />
+        </div>
+      </div>
 
       <div className={classes['content']}>
         <div className={classes['title-orange']}>Sneaker Company</div>
@@ -35,22 +58,7 @@ const Home = (): JSX.Element => {
         </div>
 
         <div className={classes['btn-actions']}>
-          <div className={classes['quantity-container']}>
-            <button
-              className={`${classes['quantity-control']} ${classes['increment']}`}
-            >
-              <div className={classes['horizontal']}></div>
-            </button>
-
-            <div className={classes['quantity']}>0</div>
-
-            <button
-              className={`${classes['quantity-control']} ${classes['decrement']}`}
-            >
-              <div className={classes['horizontal']}></div>
-              <div className={classes['vertical']}></div>
-            </button>
-          </div>
+          <QualityBtn />
 
           <button className={classes['add-to-cart']}>
             <div className={classes['cart-icon__container']}>
