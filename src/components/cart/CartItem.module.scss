@@ -1,0 +1,58 @@
+@import '../../shared/shared';
+
+.item {
+  @include between-centered();
+  gap: toRem(16);
+  width: 100%;
+}
+
+.img-container {
+  width: toRem(50);
+  height: toRem(50);
+  border-radius: toRem(4);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.content {
+  @include column-flex();
+}
+
+.title {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(16);
+  font-weight: 400;
+  line-height: toRem(26);
+  color: #69707d;
+}
+
+.price-quantity__container {
+  @include display-flex();
+  gap: toRem(8);
+}
+
+.price-quantity {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(16);
+  font-weight: 400;
+  line-height: toRem(26);
+  color: #69707d;
+}
+
+.total {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(16);
+  font-weight: 700;
+  line-height: toRem(26);
+  color: #1d2026;
+}
+
+.delete-btn {
+  @include display-flex();
+  width: toRem(14);
+  cursor: pointer;
+}

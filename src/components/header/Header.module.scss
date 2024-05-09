@@ -46,7 +46,9 @@
 }
 
 .cart-btn {
+  position: relative;
   @include display-flex();
+  cursor: pointer;
   width: toRem(21.821);
 }
 

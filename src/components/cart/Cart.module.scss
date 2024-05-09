@@ -1,0 +1,59 @@
+@import '../../shared/shared';
+
+.container {
+  position: fixed;
+  z-index: 3;
+  top: toRem(76);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98%;
+  max-width: toRem(360);
+  border-radius: toRem(10);
+  background: #fff;
+  box-shadow: toRem(0) toRem(20) toRem(50) toRem(-20) rgba(29, 32, 38, 0.5);
+  cursor: default;
+
+  @media screen and (min-width: $xl) {
+    position: absolute;
+    top: toRem(52);
+    width: toRem(360);
+  }
+}
+
+.header {
+  padding: toRem(24) toRem(24) toRem(27);
+  border-bottom: toRem(1) solid #e4e9f2;
+
+  .title {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: toRem(16);
+    font-weight: 700;
+    color: #1d2026;
+  }
+}
+
+.content {
+  @include column-centered();
+  gap: toRem(26);
+  padding: toRem(24) toRem(24) toRem(32);
+}
+
+.checkout-btn {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(16);
+  font-weight: 700;
+  color: #fff;
+  border-radius: toRem(10);
+  background: #ff7e1b;
+  align-self: stretch;
+  padding: toRem(20);
+}
+
+.msg {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(16);
+  font-weight: 700;
+  line-height: toRem(26);
+  color: #69707d;
+  text-align: center;
+}

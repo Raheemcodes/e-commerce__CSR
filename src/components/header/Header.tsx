@@ -6,6 +6,7 @@ import Avatar from '../../assets/images/avatar/image-avatar.png';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 import { useState } from 'react';
+import Cart from '../cart/Cart';
 
 const Header = (): JSX.Element => {
   const [navIsOpen, setNavIsOpen] = useState<boolean>(false);
@@ -35,6 +36,7 @@ const Header = (): JSX.Element => {
         <div className={classes['right']}>
           <div className={classes['cart-btn']}>
             <CartBtn />
+            <Cart />
           </div>
 
           <div className={classes['pfp']}>
