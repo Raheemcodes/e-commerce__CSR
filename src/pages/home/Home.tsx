@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CartIcon from '../../components/icons/CartIcon';
 import Image from '../../components/image/Image';
@@ -6,11 +6,36 @@ import QualityBtn from '../../components/quality-btn/QualityBtn';
 import Thumbnail from '../../components/thumbnail/Thumbnail';
 import { product } from '../../utilities/products.utility';
 import classes from './Home.module.scss';
+import { CartContext } from '../../store/cart.context';
 
 const Home = (): JSX.Element => {
+  const cartCtx = useContext(CartContext);
   const [isImageOpen, setIsImageOpen] = useState<boolean>(false);
   const { productId } = useParams();
+  const [quantity, setQuantity] = useState<number>(0);
   const navigate = useNavigate();
+
+  const incrementQuantity = () => setQuantity((prevState) => prevState + 1);
+
+  const decrementQuantity = () => {
+    if (quantity > 0) {
+      setQuantity((prevState) => prevState - 1);
+    }
+  };
+
+  const addToCart = () => {
+    if (quantity > 0) {
+      cartCtx.add({
+        id: product.id,
+        title: product.title,
+        image: product.thumbnails[0],
+        price: product.discount * product.price,
+        quantity,
+      });
+
+      setQuantity(0);
+    }
+  };
 
   useEffect(() => {
     setIsImageOpen(!!productId);
@@ -58,9 +83,13 @@ const Home = (): JSX.Element => {
         </div>
 
         <div className={classes['btn-actions']}>
-          <QualityBtn />
+          <QualityBtn
+            quantity={quantity}
+            increment={incrementQuantity}
+            decrement={decrementQuantity}
+          />
 
-          <button className={classes['add-to-cart']}>
+          <button className={classes['add-to-cart']} onClick={addToCart}>
             <div className={classes['cart-icon__container']}>
               <CartIcon />
             </div>

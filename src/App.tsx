@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.scss';
 import RootLayout from './pages/Root';
 import Home from './pages/home/Home';
+import { CartContextProvider } from './store/cart.context';
 
 const routes = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ const routes = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={routes} />;
+  return (
+    <CartContextProvider>
+      <RouterProvider router={routes} />
+    </CartContextProvider>
+  );
 }
 
 export default App;

@@ -5,10 +5,12 @@ import classes from './Header.module.scss';
 import Avatar from '../../assets/images/avatar/image-avatar.png';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Cart from '../cart/Cart';
+import { CartContext } from '../../store/cart.context';
 
 const Header = (): JSX.Element => {
+  const cartCtx = useContext(CartContext);
   const [navIsOpen, setNavIsOpen] = useState<boolean>(false);
 
   const toggleHandler = (state: boolean) => {
@@ -34,7 +36,10 @@ const Header = (): JSX.Element => {
         </div>
 
         <div className={classes['right']}>
-          <div className={classes['cart-btn']}>
+          <div
+            className={classes['cart-btn']}
+            onClick={cartCtx.toggleVisiblity}
+          >
             <CartBtn />
             <Cart />
           </div>

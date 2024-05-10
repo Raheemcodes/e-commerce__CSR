@@ -2,21 +2,28 @@
 
 .container {
   position: fixed;
-  z-index: 3;
+  z-index: 2;
   top: toRem(76);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -5%);
   width: 98%;
   max-width: toRem(360);
   border-radius: toRem(10);
   background: #fff;
   box-shadow: toRem(0) toRem(20) toRem(50) toRem(-20) rgba(29, 32, 38, 0.5);
   cursor: default;
+  opacity: 0;
+  transition: all 0.3s ease-out;
 
   @media screen and (min-width: $xl) {
     position: absolute;
     top: toRem(52);
     width: toRem(360);
+  }
+
+  &.opened {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
 
