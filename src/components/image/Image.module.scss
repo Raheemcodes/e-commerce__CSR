@@ -82,6 +82,7 @@
 }
 
 .navigation {
+  @include display-flex();
   width: toRem(40);
   position: absolute;
   z-index: 1;
