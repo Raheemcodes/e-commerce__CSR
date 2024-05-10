@@ -11,10 +11,31 @@
 }
 
 .nav-item {
+  @include column-centered();
+  position: relative;
   font-family: 'Kumbh Sans', sans-serif;
   font-size: toRem(15);
   font-weight: 400;
   line-height: toRem(26);
   color: #69707d;
   cursor: pointer;
+
+  &::after {
+    position: absolute;
+    width: 100%;
+    content: '';
+    height: toRem(4);
+    background: #ff7e1b;
+    bottom: toRem(-46);
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+  }
+
+  &:hover {
+    color: #1d2026;
+
+    &::after {
+      opacity: 1;
+    }
+  }
 }

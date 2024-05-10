@@ -48,7 +48,7 @@ const Header = (): JSX.Element => {
             <img src={Avatar} width={100} height={100} alt='Profile Avatar' />
           </div>
         </div>
-        <div className={classes['nav-item__border']}></div>
+        {/* <div className={classes['nav-item__border']}></div> */}
 
         <MobileNav isOpen={navIsOpen} onClose={() => toggleHandler(false)} />
       </header>
