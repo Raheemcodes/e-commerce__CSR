@@ -33,7 +33,7 @@ export const CartContextProvider = (props: PropsWithChildren): JSX.Element => {
     return () => {
       if (timeout) clearTimeout(timeout);
     };
-  }, [isOpen]);
+  });
 
   const addToCart = (prod: CartModel) => {
     setCartList((prevState) => {
@@ -54,6 +54,8 @@ export const CartContextProvider = (props: PropsWithChildren): JSX.Element => {
     setCartList((prevState) => {
       const state: CartModel[] = [...prevState];
       const newState: CartModel[] = state.filter((prod) => prod.id !== id);
+
+      setIsOpen(true);
 
       return newState;
     });
