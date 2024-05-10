@@ -52,6 +52,21 @@
   width: toRem(21.821);
 }
 
+.quantity {
+  position: absolute;
+  @include centered();
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: toRem(10);
+  font-weight: 700;
+  color: #fff;
+  border-radius: toRem(6.5);
+  background: #ff7e1b;
+  padding: toRem(1.5) toRem(6);
+}
+
 .pfp {
   @include display-flex();
   width: toRem(24);

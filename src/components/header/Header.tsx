@@ -42,6 +42,14 @@ const Header = (): JSX.Element => {
           >
             <CartBtn />
             <Cart />
+
+            {cartCtx.cartList.length > 0 && (
+              <div className={classes['quantity']}>
+                {cartCtx.cartList[0].quantity > 99
+                  ? '99+'
+                  : cartCtx.cartList[0].quantity}
+              </div>
+            )}
           </div>
 
           <div className={classes['pfp']}>
