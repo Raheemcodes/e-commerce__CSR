@@ -12,9 +12,10 @@
     right: 0;
     height: 100%;
     opacity: 0;
-    overflow-y: auto;
     transform: translateY(-5%);
     transition: all 0.3s ease-out;
+    overflow-y: auto;
+    @include custom-scrollbar();
 
     &.opened {
       opacity: 1;

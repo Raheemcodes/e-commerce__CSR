@@ -20,6 +20,11 @@ const Image = ({
   const { productId } = useParams();
   const navigate = useNavigate();
   const [index, setIndex] = useState<number>(0);
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  const onResize = () => {
+    setScreenWidth(window.innerWidth);
+  };
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -50,7 +55,12 @@ const Image = ({
 
   useEffect(() => {
     const container = containerRef.current;
+    const { body } = document;
     let timeout: NodeJS.Timeout[] = [];
+
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onResize);
+    window.addEventListener('load', onResize);
 
     if (isOpen) {
       container!.classList.remove(classes['display-none']);
@@ -58,6 +68,12 @@ const Image = ({
       timeout[0] = setTimeout(() => {
         container!.classList.add(classes['opened']);
       }, 0);
+
+      if (screenWidth < 1280) {
+        if (body.classList.contains('noscroll')) {
+          body.classList.remove('noscroll');
+        }
+      }
     } else {
       container!.classList.remove(classes['opened']);
 
@@ -68,6 +84,9 @@ const Image = ({
 
     return () => {
       timeout.forEach((timeout) => clearTimeout(timeout));
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onResize);
+      window.removeEventListener('load', onResize);
     };
   });
 
@@ -127,10 +146,10 @@ const Image = ({
             <Thumbnail product={product} />
           </div>
         </div>
+      </div>
 
-        <div className={classes['backdrop-container']}>
-          <Backdrop duration={300} isOpen={isOpen} onClick={onClose} />
-        </div>
+      <div className={classes['backdrop-container']}>
+        <Backdrop duration={300} isOpen={isOpen} />
       </div>
     </>
   );
